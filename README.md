@@ -1,4 +1,5 @@
-# AngularCrash
+# Task-Tracker
+Simple Task-Tracker application using Angular UI and JSON server as Back-end
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.2.
 
