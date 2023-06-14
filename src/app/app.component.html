@@ -1,6 +1,9 @@
 <div class="container">
   <app-header></app-header>
-  <app-tasks></app-tasks>
+  <!--since we defined tasks component as our main route path so we do not need write this command here it is already considered as our child component since we added tasks in our router config in app.module -->
+  <!-- <app-tasks></app-tasks>-->
+  <router-outlet></router-outlet>
+  <app-footer></app-footer>
 
   <div class="small-container">
     <app-zippy (eventEmitter)="onValueChanged($event)"></app-zippy>

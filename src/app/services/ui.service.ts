@@ -11,12 +11,13 @@ export class UiService {
 
   constructor() { }
 
-  //to change showAddTask value and send it on subject object
+  //to change showAddTask value and send it on subject object to all observables
   toggleAddTask(): void{
     this.showAddTask = !this.showAddTask;
     this.subject.next(this.showAddTask);
   }
 
+  // to provide subscription ability to subscribers
   onToggle(): Observable<any>{
     return this.subject.asObservable();
   }

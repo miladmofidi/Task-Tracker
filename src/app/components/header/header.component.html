@@ -1,6 +1,7 @@
 <header>
     <h1> {{ title }} </h1>
-    <app-button
+  <!-- with *ngIf directive we just show app-button when hasRoute is equal to '/' that is path of index page or our tasks component -->
+  <app-button *ngIf="hasRoute('/')"
     color="{{ showAddTask ? 'red' : 'green' }}"
     text="{{ showAddTask ? 'Close' : 'Add' }}"
     (btnClick)="toggleAddTask()"
