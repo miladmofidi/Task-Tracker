@@ -1,6 +1,8 @@
 # Task-Tracker
 Simple Task-Tracker application using Angular for UI and JSON-Server as Back-end and local database.
 
+## Screenshot
+![image](https://github.com/miladmofidi/Task-Tracker/assets/5041309/b5181023-c06d-443a-8d1a-10d56a218989)
 
 ## Run application
 
@@ -14,6 +16,4 @@ Run `npm run server`. The JSON-Server will run on port `3000` that has configure
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Screenshot
-![image](https://github.com/miladmofidi/Task-Tracker/assets/5041309/b5181023-c06d-443a-8d1a-10d56a218989)
 
