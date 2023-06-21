@@ -8,9 +8,12 @@ Run `ng serve`. Navigate to `http://localhost:4200/`. The application will autom
 
 ## Run Back-end server
 
-Run `npm run server`. The JSON-Server will run on port `5000` that has configured in the package.json, you can access it by `http://localhost:5000/` and the related resource URL is `http://localhost:5000/employees` it supports all http: GET POST PUT PATCH DELETE OPTIONS.
+Run `npm run server`. The JSON-Server will run on port `3000` that has configured in the package.json, you can access it by `http://localhost:3000/` and the related resource URL is `http://localhost:3000/employees` it supports all http: GET POST PUT PATCH DELETE OPTIONS.
 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+## Screenshot
+![image](https://github.com/miladmofidi/Task-Tracker/assets/5041309/b5181023-c06d-443a-8d1a-10d56a218989)
 
