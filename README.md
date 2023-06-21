@@ -1,5 +1,5 @@
 # Task-Tracker
-Simple Task-Tracker application using Angular for UI and JSON-Server as Back-end and local database.
+Simple Task-Tracker application using Angular for UI and JSON-Server as Back-end and local database with features such as Add / Remove / Task Reminder Flag.
 
 ## Screenshot
 ![image](https://github.com/miladmofidi/Task-Tracker/assets/5041309/b5181023-c06d-443a-8d1a-10d56a218989)
