@@ -5,7 +5,8 @@
   <router-outlet></router-outlet>
   <app-footer></app-footer>
 
-  <div class="small-container">
+  <!--Example for passing child value to parent-->
+  <div hidden="hidden" class="small-container">
     <app-zippy (eventEmitter)="onValueChanged($event)"></app-zippy>
   <label>
     Child Value: {{ childValue }}
