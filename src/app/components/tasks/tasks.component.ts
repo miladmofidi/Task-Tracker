@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from 'src/app/services/task.service';
 import { Task } from 'src/app/Task';
+import {faEdit, faTimes} from '@fortawesome/free-solid-svg-icons';
+
 
 
 @Component({
@@ -10,13 +12,19 @@ import { Task } from 'src/app/Task';
 })
 export class TasksComponent implements OnInit {
   tasks: Task[] = [];
+  faEdit = faEdit;
+
 
   constructor(private taskService: TaskService) { }
 
 
   ngOnInit(): void {
-    this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
+    this.taskService.getTasks().subscribe((tasks) => {
+      this.tasks = tasks;
+      console.log(this.tasks); // Check if the tasks array is populated correctly
+    });
   }
+
 
   deleteTask(task: Task) {
     this.taskService.deleteTask(task)
@@ -30,5 +38,10 @@ export class TasksComponent implements OnInit {
   addTask(task: Task){
     this.taskService.addTask(task).subscribe( (task) => (this.tasks.push(task)) )
   }
+
+  getTasks(): void {
+    this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
+  }
+
 
 }
