@@ -12,10 +12,11 @@ import {HttpErrorResponse} from "@angular/common/http";
 })
 export class TaskItemComponent implements OnInit  {
 
-  //To task be accesible from outside the component and can be filled
+  //To task be accessible from outside the component and can be filled
   @Input()
   task!: Task;
-  editTask!: Task | null;
+  //editTask!: Task ;
+  editTask: Task = {} as Task;
 
   @Output()
   onDeleteTask: EventEmitter<Task> = new EventEmitter();
@@ -34,6 +35,7 @@ export class TaskItemComponent implements OnInit  {
   }
 
   ngOnInit(): void {
+    this.editTask = this.task;
   }
 
 
@@ -48,29 +50,14 @@ export class TaskItemComponent implements OnInit  {
     this.onToggleReminder.emit(task);
   }
 
-  public onOpenModal(task: Task | null, mode?: string) {
-    const container = document.getElementById('main-container');
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.style.display = 'none';
-    button.setAttribute('data-toggle', 'modal');
-    if (mode === 'edit') {
-      this.editTask = task;
-      button.setAttribute('data-target', '#updateTaskModal');
-      console.log('From inside onOpenModal')
-    }
-    // @ts-ignore
-    container.appendChild(button);
-    button.click();
-  }
 
   public onUpdateTask(task: Task): void {
-    // @ts-ignore
-    //document.getElementById('add-employee-form').click();
-    this.taskService.updateTaskReminder(task).subscribe(
+    this.editTask = task;
+    this.taskService.updateTaskReminder(this.editTask).subscribe(
       (response: Task) => {
         console.log(response);
         this.onTaskUpdated.emit();
+        this.editTask = {} as Task; // Reset to an empty Task object
       },
       (erro: HttpErrorResponse) => {
         alert(erro.message);

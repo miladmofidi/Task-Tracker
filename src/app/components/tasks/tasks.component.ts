@@ -21,7 +21,7 @@ export class TasksComponent implements OnInit {
   ngOnInit(): void {
     this.taskService.getTasks().subscribe((tasks) => {
       this.tasks = tasks;
-      console.log(this.tasks); // Check if the tasks array is populated correctly
+      console.log(this.tasks);
     });
   }
 
@@ -41,6 +41,7 @@ export class TasksComponent implements OnInit {
 
   getTasks(): void {
     this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
+
   }
 
 

@@ -1,70 +1,59 @@
 <div id="main-container">
-<div [ngClass]="{ reminder: task.reminder }" class="task" (dblclick)="onToggleForReminder(task)">
-  <div>
-    <div id="task-title" class="task-header">
-      <h3>{{ task.text }}</h3>
-      <div id="icons" class="icons">
-        <div class="icon-container">
-          <fa-icon (click)="onDelete(task)" [ngStyle]="{'color':'red'}" [icon]="faTimes"></fa-icon>
-        </div>
-        <div class="icon-container">
-          <!--<fa-icon (click)="onOpenModal(task,'edit')" [ngStyle]="{'color':'blue'}" [icon]="faEdit"></fa-icon>-->
-          <!--<a (click)="onOpenModal(task, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-edit"></i> </a>-->
-          <!--<fa-icon [ngStyle]="{'color':'blue'}" [icon]="faEdit" class="icon-button" ></fa-icon>-->
-
-          <!--<button id="show-modal-btn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            <fa-icon [ngStyle]="{'color':'blue'}" [icon]="faEdit" class="icon-button" ></fa-icon>
-          </button>-->
-<!--
-          <i class="fas fa-plus fa-2x" data-toggle="modal" data-target="#exampleModal">
-            <fa-icon [icon]="faEdit" [ngStyle]="{'color':'blue'}"></fa-icon>
-          </i>-->
-
+  <div [ngClass]="{ reminder: task.reminder }" class="task" (dblclick)="onToggleForReminder(task)">
+    <div>
+      <div id="task-title" class="task-header">
+        <h3>{{ task.text }}</h3>
+        <!--Delete & Edit buttons div-->
+        <div id="icons" class="icons">
+          <div class="icon-container">
+            <fa-icon (click)="onDelete(task)" [ngStyle]="{'color':'red'}" [icon]="faTimes"></fa-icon>
+          </div>
+          <div class="icon-container">
             <a href="#updateTaskModal" role="button" class="fa fa-edit=" data-toggle="modal">
-              <fa-icon [icon]="faEdit" [ngStyle]="{'color':'blue'}"></fa-icon>
+              <fa-icon [ngStyle]="{'color':'blue'}" [icon]="faEdit"></fa-icon>
             </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p>{{ task.day }}</p>
+  </div>
+
+
+  <!--  ********************Edit Modal -->
+  <div class="modal fade" id="updateTaskModal" tabindex="-1" role="dialog" aria-labelledby="updateTaskModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="updateTaskModalLabel">Edit Task: <br> {{editTask?.text}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #editForm="ngForm">
+            <div class="form-group">
+              <label for="text">Text</label>
+              <input type="text" ngModel="{{editTask.text}}" name="text" class="form-control" id="text" aria-describedby="emailHelp" placeholder="Text">
+            </div>
+            <input type="hidden" ngModel="{{editTask.id}}" name="id" class="form-control" id="id" placeholder="Id">
+            <div class="form-group">
+              <label for="day">Day</label>
+              <input type="text" ngModel="{{editTask.day}}" name="day" class="form-control" id="day" placeholder="Day">
+            </div>
+            <div class="form-group">
+              <label for="reminder">Reminder</label>
+              <input type="text" ngModel="{{editTask.reminder}}" name="reminder" class="form-control" id="reminder" placeholder="Reminder">
+            </div>
+            <div class="modal-footer">
+              <button type="button" id="btnUpdateTask" data-dismiss="modal" class="btn btn-secondary">Close</button>
+              <button (click)="onUpdateTask(editForm.value)" class="btn btn-primary" data-dismiss="modal" >Save changes</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
-  <p>{{ task.day }}</p>
-</div>
-
-
-<!--  ********************Edit Modal -->
-<div class="modal fade" id="updateTaskModal" tabindex="-1" role="dialog" aria-labelledby="updateTaskModal" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="updateTaskModalLabel">Edit Task: <br> {{task?.text}}</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form #editForm="ngForm">
-          <div class="form-group">
-            <label for="text">Text</label>
-            <input type="text" [(ngModel)]="task.text" name="text" class="form-control" id="text" aria-describedby="emailHelp" placeholder="Text">
-          </div>
-          <input type="hidden" [(ngModel)]="task.id" name="id" class="form-control" id="id" placeholder="Id">
-          <div class="form-group">
-            <label for="day">Day</label>
-            <input type="text" [(ngModel)]="task.day" name="day" class="form-control" id="day" placeholder="Day">
-          </div>
-          <div class="form-group">
-            <label for="reminder">Reminder</label>
-            <input type="text" [(ngModel)]="task.reminder" name="reminder" class="form-control" id="reminder" placeholder="Reminder">
-          </div>
-          <div class="modal-footer">
-            <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
-            <button (click)="onUpdateTask(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 </div>
